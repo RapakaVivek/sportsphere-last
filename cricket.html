@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket</title>
+    <style>
+        body {
+            background-color: rgb(250, 250, 250);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(131, 18, 106);
+    padding: 0 20px;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    margin-left: -30px;
+}
+
+.navbar img {
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-right: 50px;
+}
+
+.navbar h1 {
+    color: white;
+    margin: 0;
+}
+
+.topics {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topics li {
+    position: relative;
+    margin-left: 10px;
+}
+
+.topics a {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.3rem;
+    padding: 15px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.topics a:hover {
+    color: orange;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: black;
+    width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown a {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: white;
+    color: crimson;
+}
+
+.topics li:hover .dropdown {
+    display: block;
+}
+
+.buttons{
+    margin-left: 80px;
+}
+.navbar button {
+    height: 35px;
+    width: 120px;
+    background-color: orange;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 0;
+    margin-left: 10px; 
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: rgb(20, 85, 105);
+    color: white;
+}
+        .head {
+            background-color: black;
+            height: 550px;
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(253, 250, 251);
+            text-align: center;
+            margin-top: 100px;
+        }
+        .head h1 {
+            font-size: 50px;
+            margin-left: 400px;
+            animation-name: right;
+            animation-duration: 5s;
+        }
+        @keyframes right {
+            from {
+                transform: translateX(700px);
+            }
+            to {
+                transform: translateX(0px);
+            }
+        }
+        .head img {
+            height: 100%;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation-name: left;
+            animation-duration: 5s;
+        }
+        @keyframes left {
+            from {
+                transform: translateX(-700px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        .h h1 {
+            text-align: center;
+            font-size: 60px;
+            color: crimson;
+        }
+        .stick {
+            display: flex;
+            column-gap: 50px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .stick1 {
+            background-color: black;
+            font-size: 15px;
+            height: 400px;
+            width: 250px;
+            border: solid 1px white;
+            text-align: center;
+            border-radius: 20px;
+            position: sticky;
+            top: 20px;
+        }
+        .stick1 a {
+            color: white;
+            text-decoration: none;
+            font-size:10px;
+            display: block;
+            padding: 10px;
+            transition-duration: 2s;
+        }
+        .stick1 a:hover {
+            font-size: 15px;
+            color: orangered;
+        }
+        .stick2 {
+            width: 100%;
+        }
+        .A {
+            border: 1px solid;
+            border-radius: 20px;
+            color: rgb(20, 18, 18);
+            box-shadow: 10px 10px 10px rgb(158, 156, 156);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .A h1 {
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 10px;
+        }
+        .A p {
+            padding: 10px;
+            margin: 0;
+        }
+        .A img {
+            width: 700px;
+            height: 400px;
+            margin-left: 130px;
+            border-radius: 20px;
+        }
+        .footer{
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: rgb(173, 16, 147);
+        height:400px;
+    }
+    .footer div {
+       margin-top: 40px;
+    }
+    .footer div ul li{
+        list-style: none;
+        font-size: 18px;
+        color:white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+    .footer div ul li:hover {
+        color:yellow;
+        font-size: 19px;;
+    }
+    .footer div ul a{
+        text-decoration: none;
+        color:black;
+    }
+    .footer div img{
+        width:200px;
+        height:80px;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+    .footer div ul .bold{
+        font-size: 22px;
+        color:white;
+        font-weight: bold;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .footer div p{
+        font-size: 30px;
+        margin-left: 30px;
+        color:rgb(200, 245, 38);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+     .box input {
+        margin-top: 50px;
+        border-radius: 10px;
+        border:none;
+        outline:none;
+        border-bottom: 3px solid greenyellow;
+        color:white;
+        background-color: black;
+        width:350px;
+        height:50px;
+        font-size: 16px;
+        padding-left:20px;
+    }
+     .box button {
+        width:150px;
+        height:50px;
+        font-size: 20px;
+        background-color: greenyellow;
+        color:crimson;
+        border-radius: 10px;
+        border: none;
+    }
+    .box button:hover {
+        background-color: red;
+        color:white;
+    }
+    .box{
+        margin-top: -180px;
+        margin-left: 450px;
+    }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar">
+        
+        <img class="logo" src="Images/footer.jpeg" width="100px">
+
+
+        <ul class="topics">
+            <li><a href="Homepage.html" target="_blank">Home</a></li>
+            <li><a href="livescore.html" target="_blank">Live Score</a></li>
+         
+           
+            <li>
+                <a href="#">News</a>
+                <div class="dropdown">
+                    <a href="news.html" target="_blank">Updates</a>
+                    <a href="india.html" target="_blank">Stats</a>
+                    <a href="calendar.html" target="_blank">Event Calendar</a>
+                </div>
+            </li>
+
+            <li><a href="league.html" target="_blank">Fantasy Sports </a></li>
+            <li><a href="" target="_blank">More</a>
+                <div class="dropdown">
+                    <a href="Gallery.html" target="_blank">Gallery</a>
+                    <a href="ps.html" target="_blank">Privacy & security</a>
+                    <a href="commutatory.html" target="_blank">Community & Forums</a>
+
+                </div>
+                <li><a href="Loginsingup.html" target="_blank">LogOut</a>
+            </li>
+            
+        </ul> 
+            
+            <div class="buttons">
+          <a href="sub.html"><button >subscribe</button></a>
+           <a href="shop.html"><button >Shop</button></a>
+            </ul>
+        </div>
+           
+    </nav>
+    <div class="head">
+        <h1>Detailed Cricket<br>Match News &<br>Reviews...</h1>
+        <img src="images/vivek2.png" alt="Cricket Image">
+    </div>
+    <div class="h">
+        <h1>Cricket Teams</h1>
+    </div>
+    <div class="stick">
+        <div class="stick1">
+             <a href="#1"><h1>India</h1></a>
+             <a href="#2"><h1>Australia</h1></a>
+             <a href="#3"><h1>England</h1></a>
+             <a href="#4"><h1>South Africa</h1></a>
+             <a href="#5"><h1>NewZland</h1></a>
+        </div>
+        <div class="stick2">
+            <div id="1" class="A">
+                <h1>India</h1>
+                <img src="images/ind team.jpg">
+                <p>The Indian men's national cricket team represents India in international cricket.
+                     The Board of Control for Cricket in India (BCCI) manages the team. As of July 26, 2024, 
+                     the team's captains are Rohit Sharma for Test and ODI matches, and Hardik Pandya for
+                      T20I matches. The coaches are:<br><br>
+                    Rahul Dravid: Head coach<br><br>
+                    Paras Mhambrey: Bowling coach<br><br>
+                    Vikram Rathour: Batting coach<br><br>
+                    T Dilip: Fielding coach</p>
+                <a href="#"><p>More</p></a>
+            </div>
+            <div id="2" class="A">
+                <h1>Australia</h1>
+                <img src="images/Australia-1.jpg">
+                <p>They are regarded as most successful cricket teams in the history of Cricket. The national
+                     team has played 866 Test matches, winning 414, losing 232, 218 draw and 2 Tie. As of May 2022,
+                      Australia is ranked first in the ICC Test Championship on 128 rating points.<br><br></p>
+                <a href="#"><p>More</p></a>
+            </div>
+            <div id="3" class="A">
+                <h1>England</h1>
+                <img src="images/england.webp">
+                <p>As of 28 July 2024, England have played 1,074 Test matches, winning 395 and losing 324 (with 355 draws)
+                    . In the Test series against Australia, England play for The Ashes, one of the most famous 
+                    trophies in all of sport, and they have won the urn on 32 occasions. England have also played 
+                    797 ODIs, winning 400.<br><br></p>
+                <a href="#"><p>More</p></a>
+            </div>
+            <div id="4" class="A">
+                <h1>South-Africa</h1>
+                <img src="images/south-africa.jpg">
+                <p>The Proteas, currently ranked third in the ODIs, will be led by none other than the top One-Day
+                     Internationals batsman AB de Villiers. The team boasts eight players with previous World Cup
+                      experience in De Villiers, Hashim Amla, Faf du Plessis, JP Duminy, Wayne Parnell, Morne Morkel,
+                       Dale Steyn and Imran Tahir.<br><br></p>
+                <a href="#"><p>More</p></a>
+            </div>
+            <div id="5" class="A">
+                <h1>NewZland</h1>
+                <img src="images/newzland.webp">
+                <p>New Zealand are the inaugural champions of WTC which they won in 2021 and they have also won ICC CT
+                     in 2000. They have played in the CWC final twice and the T20 WC final once.<br><br></p>
+                <a href="#"><p>More</p></a>
+            </div>
+           
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <ul>
+                <a href=""><li class="bold">Main Pages</li></a>
+                <a href="Homepage.html"><li>Home</li></a>
+                <a href="livescore.html"><li>Live score</li></a>
+                <a href="calendar.html"><li>Events</li></a>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Products</li></a>
+                <a href="shop.html"><li>shop</li></a>
+                <a href="sub.html"><li>Subscription</li></a>
+            </ul>
+        </div>
+        <div><img src="images/footer.jpeg">
+            
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Services</li></a>
+                <a href="Loginsingup.html"><li>Login</li></a>
+                <a href="Loginsingup.html"><li>signup</li></a>
+                <a href="ps.html"><li>Privacy</li></a>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Details</li></a>
+                <a href="calendar.html"><li>Events Calender</li></a>
+                <a href="league.html"><li>Featured Sports</li></a>
+                <a href="commutatory.html"><li>Community forum</li></a>
+            </ul>
+        </div>
+        </div>
+        <div class="box">
+        <input type="email" placeholder="Email" class="email">
+        <button class="button">Subscribe</button>
+        </div>
+        
+    
+</body>
+</html>

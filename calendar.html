@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            height: 50px;
+            border-color: rgb(195, 197, 198);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        th{
+            font-size: 16px;
+        }
+        td{
+            padding-left: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-top: 100px;
+            box-shadow: 7px 7px 7px rgb(53, 51, 51);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        #submitBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #submitBtn:hover {
+            background-color: #45a049;
+        }
+        #thankYouMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container1 {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-top: 100px;
+            box-shadow: 7px 7px 7px rgb(53, 51, 51);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        #reminderBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #reminderBtn:hover {
+            background-color: #45a049;
+        }
+        #reminderMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+        .comic{
+            display: flex;
+        }
+
+
+
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(131, 18, 106);
+  padding: 0 20px;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar img {
+  width: 150px;
+  height: 60px;
+  border-radius: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.navbar h1 {
+  color: white;
+  margin: 0;
+}
+
+.topics {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topics li {
+  position: relative;
+}
+
+.topics a {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  font-size:18px;
+  padding: 15px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.topics a:hover {
+  color: orange;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: black;
+  width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: white;
+  color: crimson;
+}
+
+.topics li:hover .dropdown {
+  display: block;
+}
+
+.btns{
+  margin-left: 80px;
+  display: flex;
+}
+.navbar button {
+  height: 35px;
+  width: 120px;
+  background-color: orange;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0;
+  margin-left: 10px; 
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: rgb(20, 85, 105);
+  color: white;
+}
+.footer{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: rgb(173, 16, 147);
+        height:400px;
+        margin-top: 100px;
+    }
+    .footer div {
+       margin-top: 40px;
+    }
+    .footer div ul li{
+        list-style: none;
+        font-size: 18px;
+        color:white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+    .footer div ul li:hover {
+        color:yellow;
+        font-size: 19px;;
+    }
+    .footer div ul a{
+        text-decoration: none;
+        color:black;
+    }
+    .footer div img{
+        width:200px;
+        height:80px;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+    .footer div ul .bold{
+        font-size: 22px;
+        color:white;
+        font-weight: bold;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .footer div p{
+        font-size: 30px;
+        margin-left: 30px;
+        color:rgb(200, 245, 38);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+     .box input {
+        margin-top: 50px;
+        border-radius: 10px;
+        border:none;
+        outline:none;
+        border-bottom: 3px solid greenyellow;
+        color:white;
+        background-color: black;
+        width:350px;
+        height:50px;
+        font-size: 16px;
+        padding-left:20px;
+    }
+     .box button {
+        width:150px;
+        height:50px;
+        font-size: 20px;
+        background-color: greenyellow;
+        color:crimson;
+        border-radius: 10px;
+        border: none;
+    }
+    .box button:hover {
+        background-color: red;
+        color:white;
+    }
+    .box{
+        margin-top: -180px;
+        margin-left: 450px;
+    }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        
+    <img class="logo" src="images/footer.jpeg" width="100px">
+
+
+    <ul class="topics">
+        <li><a href="Homepage.html" target="_blank">Home</a></li>
+        <li><a href="livescore.html" target="_blank">Live Score</a></li>
+     
+       
+        <li>
+            <a href="#">News</a>
+            <div class="dropdown">
+                <a href="news.html" target="_blank">Updates</a>
+                <a href="india.html" target="_blank">Stats</a>
+                <a href="calendar.html" target="_blank">Event Calendar</a>
+            </div>
+        </li>
+
+        <li><a href="league.html" target="_blank">Fantasy Sports </a></li>
+        <li><a href="" target="_blank">More</a>
+            <div class="dropdown">
+                <a href="Gallery.html" target="_blank">Gallery</a>
+                <a href="ps.html" target="_blank">Privacy & security</a>
+                <a href="commutatory.html" target="_blank">Community & Forums</a>
+
+            </div>
+            <li><a href="Loginsingup.html" target="_blank">LogOut</a>
+        </li>
+       </ul>  
+ 
+        
+        <div class="btns">
+      <a href="sub.html"><button >subscribe</button></a>
+       <a href="shop.html"><button >Shop</button></a>
+    </div>
+       
+</nav>
+
+
+<div style="padding-top: 100px; text-align: center;" class="comics1">
+    <h1>EVENT CALENDER</h1>
+</div>
+    <div align="center">
+        <table>
+            <tr id="heading">
+                <th colspan="7" >Upcoming Sports Events : December 2024 – April 2025</th>
+            </tr>
+            <tr>
+                <th style="width: 140px;">Month</th>
+                <th style="width:120px;">Date</th>
+                <th style="width: 120px;">Time</th>
+                <th style="width: 150px;">Sport</th>
+                <th style="width:250px;">Event</th>
+                <th style="width: 170px;">Venue</th>
+                <th style="width: 170px;">Categories</th>
+            </tr>
+            <tr>
+                <td rowspan="16">December</td>
+            </tr>
+            <tr>
+                <td>12th</td>
+                <td>8:00 PM</td>
+                <td>Tennis</td>
+                <td>Hyderabad Tennis Premier League – Entries open</td>
+                <td>Online</td>
+                <td>U12,U14,U16 Boys/Girls</td>
+            </tr>
+            <tr>
+                <td>TBC</td>
+                <td>TBC</td>
+                <td>Cricket</td>
+                <td>HCA Inter-school League</td>
+                <td>TBC</td>
+                <td>U14 Boys</td>
+            </tr>
+            <tr>
+                <td>12th</td>
+                <td rowspan="3">12:30pm-1:15pm</td>
+                <td>Athletics</td>
+                <td rowspan="3">Tryouts – PYP Fest Teams</td>
+                <td>Cricket Ground</td>
+                <td rowspan="3">PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>13th</td>
+                <td>Football</td>
+                <td>Football field</td>
+            </tr>
+            <tr>
+                <td rowspan="2">14th</td>
+                <td>Cricket</td>
+                <td>Cricket field</td>
+            </tr>
+            <tr>
+                <td>9:30 AM</td>
+                <td>Cricket</td>
+                <td>U14 Cricket League Finals</td>
+                <td>SIS</td>
+                <td>U14 Boys</td>
+            </tr>
+            <tr>
+                <td>15th</td>
+                <td rowspan="2">12:30-1:15PM</td>
+                <td>Basketball</td>
+                <td rowspan="3">Tryouts – PYP Fest Teams</td>
+                <td>Basketball courts</td>
+                <td rowspan="3">PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>16th</td>
+                <td>Swimming</td>
+                <td>Swimming Pool</td>
+            </tr>
+            <tr>
+                <td>TBC</td>
+                <td>TBC</td>
+                <td>Chess</td>
+                <td>TBC</td>
+            </tr>
+            <tr>
+                <td>17th</td>
+                <td>9:00 AM</td>
+                <td>Multi-Sports</td>
+                <td>KMR Foundation Sports day	</td>
+                <td>SIS</td>
+                <td>Grade 4 – 6</td>
+            </tr>
+            <tr>
+                <td>18th</td>
+                <td>10:00 PM</td>
+                <td rowspan="8">Tennis</td>
+                <td>HTPL Entry Closes</td>
+                <td>Online</td>
+                <td>U12,U14,U16 B/G</td>
+            </tr>
+            <tr>
+                <td>22nd</td>
+                <td rowspan="7">8:00 AM</td>
+                <td rowspan="3">HTPL – Qualifying</td>
+                <td rowspan="4">SIS</td>
+                <td>U12 B/G</td>
+            </tr>
+            <tr>
+                <td>23rd</td>
+                <td>U14 B/G</td>>
+            </tr>
+            <tr>
+                <td>24th</td>
+                <td>U16 B/G</td>
+            </tr>
+            <tr>
+                <td>28th – 31st</td>
+                <td>HTPL League Stage</td>
+                <td>U12,U14,U16 B/G</td>
+            </tr>
+            <tr>
+                <td rowspan="6">January</td>
+            </tr>
+            <tr>
+                <td>2nd – 7th</td>
+                <td>National Series</td>
+                <td>Sania Marza Tennis Academy</td>
+                <td>U16 B/G</td>
+            </tr>
+            <tr>
+                <td>21st</td>
+                <td>Tennis Tournament</td>
+                <td>SIS</td>
+                <td>U10,U12,U14 Boys/Girls</td>
+            </tr>
+            <tr>
+                <td>23rd – 25th</td>
+                <td>9:00 AM</td>
+                <td>Athletics</td>
+                <td>PYP Fest</td>
+                <td>The Gaudium School</td>
+                <td>PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>25th</td>
+                <td>8:30 AM</td>
+                <td>All Sports</td>
+                <td>Sports Assembly</td>
+                <td>Amphirethre</td>
+                <td>MYP – DP</td>
+            </tr>
+            <tr>
+                <td>27th</td>
+                <td>8:30 AM</td>
+                <td></td>
+                <td>Sports Day</td>
+                <td>Sreendhi Sports Feilds</td>
+                <td>PYP3 – D2</td>
+            </tr>
+            <tr>
+                <td rowspan="7">February</td>
+            </tr>
+            <tr>
+                <td>2nd – 4th</td>
+                <td>9:00 AM</td>
+                <td>Cricket</td>
+                <td>PYP Fest</td>
+                <td>SIS</td>
+                <td>PYP3-5</td>
+            </tr>
+            <tr>
+                <td>TBC</td>
+                <td>TBC</td>
+                <td>Squash</td>
+                <td>State Tournament</td>
+                <td>SIS</td>
+                <td>U10,U12,U14 Boys/Girls</td>
+            </tr>
+            <tr>
+                <td>10th</td>
+                <td rowspan="3">9:00 AM</td>
+                <td>Multi-Activities</td>
+                <td>Mini Sports Day</td>
+                <td>SIS Sports Feilds</td>
+                <td>EY1 – PYP2</td>
+            </tr>
+            <tr>
+                <td>14th – 15th</td>
+                <td>Football/Soccer</td>
+                <td rowspan="2">PYP Fest</td>
+                <td>The Gaudium School</td>
+                <td>PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>16th – 17th	</td>
+                <td>Chess</td>
+                <td>DRS International School</td>
+                <td>PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>20th</td>
+                <td>TBC</td>
+                <td>Tennis</td>
+                <td>National Series</td>
+                <td>TBC</td>
+                <td>U16 B/G</td>
+            </tr>
+            <tr>
+                <td rowspan="1">February/March</td>
+                <td>27th – 1st</td>
+                <td>9:00 AM</td>
+                <td>Swimming</td>
+                <td>PYP FEST</td>
+                <td>Oakridge International School, Gachibowli</td>
+                <td>PYP3 – 5</td>
+            <tr>
+                <td rowspan="1">March</td>
+                <td>18th – 19th</td>
+                <td rowspan="4">9:00 AM</td>
+                <td>Cricket</td>
+                <td>Sreenidhi Colts Bash</td>
+                <td>SIS Cricket ground</td>
+                <td>U12 coed</td>
+            </tr>
+            <tr>
+                <td rowspan="4">April</td>
+            </tr>
+            <tr>
+                <td>6th</td>
+                <td>Swimming</td>
+                <td>SIS PYP Swimming Gala</td>
+                <td>SIS – swimming pool</td>
+                <td>PYP3 – 5</td>
+            </tr>
+            <tr>
+                <td>21st</td>
+                <td>Swimming</td>
+                <td>SIS MYP Swimming Gala</td>
+                <td>SIS – swimming pool</td>
+                <td>MYP 1 – 4</td>
+            </tr>
+            <tr>
+                <td>28th</td>
+                <td>4:30 PM</td>
+                <td>All Sports</td>
+                <td>End of ETZ</td>
+                <td></td>
+                <td>All catergories</td>
+            </tr>
+        </table>
+    </div>
+    <div class="comic">
+       
+    <div class="container">
+        <h1>Event Ticket Booking</h1>
+        <form id="ticketForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+        <p id="thankYouMessage">Thank you for submitting your details!</p>
+    </div>
+    <div class="container1">
+        <h1>Set Event Reminder</h1>
+        <form id="reminderForm">
+            <div class="form-group">
+                <label for="reminderName">Name:</label>
+                <input type="text" id="reminderName" required>
+            </div>
+            <div class="form-group">
+                <label for="reminderEmail">Email:</label>
+                <input type="email" id="reminderEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="reminderDate">Reminder Date:</label>
+                <input type="date" id="reminderDate" required>
+            </div>
+            <div class="form-group">
+                <label for="reminderTime">Reminder Time:</label>
+                <input type="time" id="reminderTime" required>
+            </div>
+            <button type="submit" id="reminderBtn">Set Reminder</button>
+        </form>
+        <p id="reminderMessage">Your reminder has been set!</p>
+    </div>
+</div>
+<div class="footer">
+    <div>
+        <ul>
+            <a href=""><li class="bold">Main Pages</li></a>
+            <a href="Homepage.html"><li>Home</li></a>
+            <a href="livescore.html"><li>Live score</li></a>
+            <a href="calendar.html"><li>Events</li></a>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <a href=""><li class="bold">Products</li></a>
+            <a href="shop.html"><li>shop</li></a>
+            <a href="sub.html"><li>Subscription</li></a>
+        </ul>
+    </div>
+    <div><img src="images/footer.jpeg">
+        
+    </div>
+    <div>
+        <ul>
+            <a href=""><li class="bold">Services</li></a>
+            <a href="Loginsingup.html"><li>Login</li></a>
+            <a href="Loginsingup.html"><li>signup</li></a>
+            <a href="ps.html"><li>Privacy</li></a>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <a href=""><li class="bold">Details</li></a>
+            <a href="calendar.html"><li>Events Calender</li></a>
+            <a href="league.html"><li>Featured Sports</li></a>
+            <a href="commutatory.html"><li>Community forum</li></a>
+        </ul>
+    </div>
+    </div>
+    <div class="box">
+    <input type="email" placeholder="Email" class="email">
+    <button class="button">Subscribe</button>
+    </div>
+    
+
+
+    <script>
+       const button = document.querySelector(".button");
+
+button.addEventListener("click", function() {
+    const box = document.querySelector(".email");
+    const emailValue = box.value.trim(); 
+    
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailValue === "" || !emailRegex.test(emailValue)) {
+        box.value = "Please enter  Email";
+        box.style.paddingLeft = "10px"; 
+        box.style.color = "red";
+    } else {
+        box.value = "Thank you for subscription!!!";
+        box.style.paddingLeft = "40px";
+        box.style.color = "yellow";
+    }
+});
+
+    </script>
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+           
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            
+
+           
+            document.getElementById('thankYouMessage').style.display = 'block';
+
+           
+            document.getElementById('ticketForm').reset();
+        });
+        document.getElementById('reminderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+    
+            var name = document.getElementById('reminderName').value;
+            var email = document.getElementById('reminderEmail').value;
+            var reminderDate = document.getElementById('reminderDate').value;
+            var reminderTime = document.getElementById('reminderTime').value;
+
+            document.getElementById('reminderMessage').style.display = 'block';
+
+            document.getElementById('reminderForm').reset();
+        });
+    </script>
+</body>
+</html>

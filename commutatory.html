@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Interest Groups</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .heading {
+            color: green;
+            font-size: 55px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 100px;
+        }
+        .game-container1, .game-container2 {
+            display: flex;
+            gap: 60px;
+            margin-left: 200px;
+            margin-top: 50px;
+        }
+        .game {
+            padding: 20px;
+            width: 250px;
+            height: 170px;
+            background-color: white;
+            box-shadow: 0px 2px 8px 2px grey;
+            border-radius: 20px;
+        }
+        .game p {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .game .para {
+            margin-top: 15px;
+            font-size: 16px;
+            color: rgb(109, 173, 12);
+        }
+        .game button {
+            margin-left: 50px;
+            margin-top: 30px;
+            padding: 0.5em 1em;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .game button:hover {
+            background-color: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background:#ece2e2;
+        }
+        .feedback {
+            margin-left: 150px;
+            margin-top: 80px;
+            color:blue;
+        }
+        .poll {
+            position: absolute;
+            margin-top: 60px;
+            margin-left: 130px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 5px rgba(35, 30, 128, 0.05);
+        }
+        .poll .question {
+            padding: 20px;
+            color: #111;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        .poll .answers {
+            padding: 20px 20px 10px;
+        }
+        .poll .answers .answer {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            padding: 0px 10px;
+            line-height: 40px;
+            color: #111;
+            margin-bottom: 10px;
+            border: 1px solid #d4d4d4;
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+
+
+        }
+        .poll .answers .answer .selected {
+            border: 2px solid #8f9fe8;
+        }
+        .poll .answers .answer span.percentage-value {
+            position:absolute;
+            top: 50%;
+            right: 0px;
+            width: 40px;
+            transform: translateY(-50%);
+            color: #111;
+            font-size: 15px;
+
+        }
+        .poll .answers .answer span.percentage-bar {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 50%;
+            height: 100%;
+            background-color:#ccd8f1; 
+            transition: width 300ms ease-in-out;
+            z-index:-1;
+        }
+
+
+        .feedback2 {
+            margin-left: 800px;
+            margin-top: -20px;
+            color:rgb(111, 173, 18);
+        }
+        .polling {
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 800px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 5px rgba(35, 30, 128, 0.05);
+        }
+        .polling .question {
+            padding: 20px;
+            color: #111;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        .polling .answers {
+            padding: 20px 20px 10px;
+        }
+        .polling .answers .answer {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            padding: 0px 10px;
+            line-height: 40px;
+            color: #111;
+            margin-bottom: 10px;
+            border: 1px solid #d4d4d4;
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+
+
+        }
+        .polling .answers .answer .selected {
+            border: 2px solid #8f9fe8;
+        }
+        .polling .answers .answer span.percentage-value {
+            position:absolute;
+            top: 50%;
+            right: 0px;
+            width: 40px;
+            transform: translateY(-50%);
+            color: #111;
+            font-size: 15px;
+
+        }
+        .polling .answers .answer span.percentage-bar {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 50%;
+            height: 100%;
+            background-color:#ccd8f1; 
+            transition: width 300ms ease-in-out;
+            z-index:-1;
+        }
+
+
+
+
+    .container {
+    max-width: 800px;
+    margin-top:450px;
+    margin-left: 280px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   }
+
+header {
+    text-align: center;
+}
+
+.discussion  {
+    color:rgb(161, 35, 161);
+}
+
+.post-form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.container button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.container button:hover {
+    background-color: #218838;
+}
+
+.posts {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.post h3 {
+    margin: 0 0 10px;
+}
+
+.post p {
+    margin: 0;
+}
+
+
+
+
+
+.container2 {
+  max-width: 800px;
+  margin-top: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container2 h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#007bff;
+}
+
+.event {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.event:hover {
+  transform: scale(1.02);
+}
+
+.event h2 {
+  margin: 0;
+}
+
+.date {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+}
+
+
+
+
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(173, 16, 147);
+    height:400px;
+    margin-top: 100px;
+}
+.footer div {
+   margin-top: 40px;
+}
+.footer div ul li{
+    list-style: none;
+    font-size: 18px;
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.footer div ul li:hover {
+    color:yellow;
+    font-size: 19px;;
+}
+.footer div ul a{
+    text-decoration: none;
+    color:black;
+}
+.footer div img{
+    width:200px;
+    height:80px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.footer div ul .bold{
+    font-size: 22px;
+    color:white;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.footer div p{
+    font-size: 30px;
+    margin-left: 30px;
+    color:rgb(200, 245, 38);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+ .box input {
+    margin-top: 50px;
+    border-radius: 10px;
+    border:none;
+    outline:none;
+    border-bottom: 3px solid greenyellow;
+    color:white;
+    background-color: black;
+    width:350px;
+    height:50px;
+    font-size: 16px;
+    padding-left:10px;
+}
+ .box button {
+    width:150px;
+    height:50px;
+    font-size: 20px;
+    background-color: greenyellow;
+    color:crimson;
+    border-radius: 10px;
+    border: none;
+}
+.box button:hover {
+    background-color: red;
+    color:white;
+}
+.box{
+    margin-top: -180px;
+    margin-left: 450px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(131, 18, 106);
+  padding: 0 20px;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar img {
+  width: 150px;
+  height: 60px;
+  border-radius: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.navbar h1 {
+  color: white;
+  margin: 0;
+}
+
+.topics {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topics li {
+  position: relative;
+}
+
+.topics a {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  font-size:18px;
+  padding: 15px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.topics a:hover {
+  color: orange;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: black;
+  width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: white;
+  color: crimson;
+}
+
+.topics li:hover .dropdown {
+  display: block;
+}
+
+.btns{
+  margin-left: 80px;
+  display: flex;
+}
+.navbar button {
+  height: 35px;
+  width: 120px;
+  background-color: orange;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0;
+  margin-left: 10px; 
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: rgb(20, 85, 105);
+  color: white;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        
+        <img class="logo" src="images/footer.jpeg" width="100px">
+  
+  
+        <ul class="topics">
+            <li><a href="Homepage.html" target="_blank">Home</a></li>
+            <li><a href="livescore.html" target="_blank">Live Score</a></li>
+         
+           
+            <li>
+                <a href="#">News</a>
+                <div class="dropdown">
+                    <a href="news.html" target="_blank">Updates</a>
+                    <a href="india.html" target="_blank">Stats</a>
+                    <a href="calendar.html" target="_blank">Event Calendar</a>
+                </div>
+            </li>
+  
+            <li><a href="league.html" target="_blank">Fantasy Sports </a></li>
+            <li><a href="" target="_blank">More</a>
+                <div class="dropdown">
+                    <a href="Gallery.html" target="_blank">Gallery</a>
+                    <a href="ps.html" target="_blank">Privacy & security</a>
+                    <a href="commutatory.html" target="_blank">Community & Forums</a>
+  
+                </div>
+                <li><a href="Loginsingup.html" target="_blank">LogOut</a>
+            </li>
+           </ul>  
+     
+            
+            <div class="btns">
+          <a href="sub.html"><button >subscribe</button></a>
+           <a href="shop.html"><button >Shop</button></a>
+        </div>
+           
+    </nav>
+ 
+
+
+
+
+    <h1 class="heading">Community Forum</h1>
+
+    <div class="game-container1">
+        <div class="game">
+            <p>Cricket</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+        <div class="game">
+            <p>Football</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+        <div class="game">
+            <p>Tennis</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+    </div>
+
+    <div class="game-container2">
+        <div class="game">
+            <p>Hockey</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+        <div class="game">
+            <p>Volley Ball</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+        <div class="game">
+            <p>Shuttle</p>
+            <button class="btn">Join group</button>
+            <p class="para"></p>
+        </div>
+    </div>
+
+    <h1 class="feedback">Polling On Teams</h1>
+    <div class="poll">
+        <div class="question"></div>
+        <div class="answers"></div>
+    </div>
+
+
+    <h1 class="feedback2">Polling On Sports</h1>
+    <div class="polling">
+        <div class="question"></div>
+        <div class="answers"></div>
+    </div>
+
+
+    <div class="container">
+        <header>
+            <h1 class="discussion">Sports Discussion Board</h1>
+        </header>
+        <main>
+            <section class="post-form">
+                <h2>Add a New Post</h2>
+                <form id="postForm">
+                    <label for="postTitle">Title:</label>
+                    <input type="text" id="postTitle" required>
+                    
+                    <label for="postContent">Content:</label>
+                    <textarea id="postContent" rows="4" required></textarea>
+                    
+                    <button type="submit">Post</button>
+                </form>
+            </section>
+
+            <section class="posts">
+                <h2>Posts</h2>
+                <div id="postsContainer">
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <div class="container2">
+        <h1>Events and Meetups</h1>
+        <div class="event" onclick="toggleDetails(this)">
+          <h2>Fan Meetup in New York</h2>
+          <p class="date">August 20, 2024</p>
+          <div class="details">
+            <p>Join us in New York for an exciting fan meetup! Meet fellow fans, participate in activities, and enjoy the vibrant community atmosphere.</p>
+          </div>
+        </div>
+        <div class="event" onclick="toggleDetails(this)">
+          <h2>Community Event in San Francisco</h2>
+          <p class="date">September 15, 2024</p>
+          <div class="details">
+            <p>Our community event in San Francisco will feature guest speakers, workshops, and networking opportunities. Don't miss out!</p>
+          </div>
+        </div>
+
+        <div class="event" onclick="toggleDetails(this)">
+            <h2>Community Event in Italy</h2>
+            <p class="date">November 25, 2024</p>
+            <div class="details">
+              <p>Our community event in italy will feature guest speakers, workshops, and networking opportunities. Don't miss out!</p>
+            </div>
+        </div>
+
+        <div class="event" onclick="toggleDetails(this)">
+            <h2>Fan Meetup in Switzerland</h2>
+            <p class="date">August 20, 2024</p>
+            <div class="details">
+              <p>Join us in switzerland for an exciting fan meetup! Meet fellow fans, participate in activities, and enjoy the vibrant community atmosphere.</p>
+            </div>
+          </div>
+
+          <div class="event" onclick="toggleDetails(this)">
+            <h2>Community Event in India</h2>
+            <p class="date">October 18, 2024</p>
+            <div class="details">
+              <p>Our community event in India will feature guest speakers, workshops, and networking opportunities. Don't miss out!</p>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="footer">
+        <div>
+            <ul>
+                <a href=""><li class="bold">Main Pages</li></a>
+                <a href="Homepage.html"><li>Home</li></a>
+                <a href="livescore.html"><li>Live score</li></a>
+                <a href="calendar.html"><li>Events</li></a>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Products</li></a>
+                <a href="shop.html"><li>shop</li></a>
+                <a href="sub.html"><li>Subscription</li></a>
+            </ul>
+        </div>
+        <div><img src="images/footer.jpeg">
+            
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Services</li></a>
+                <a href="Loginsingup.html"><li>Login</li></a>
+                <a href="Loginsingup.html"><li>signup</li></a>
+                <a href="ps.html"><li>Privacy</li></a>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <a href=""><li class="bold">Details</li></a>
+                <a href="calendar.html"><li>Events Calender</li></a>
+                <a href="league.html"><li>Featured Sports</li></a>
+                <a href="commutatory.html"><li>Community forum</li></a>
+            </ul>
+        </div>
+        </div>
+        <div class="box">
+        <input type="email" placeholder="Email" class="email">
+        <button class="button">Subscribe</button>
+        </div>
+<script>
+    document.querySelectorAll(".game").forEach(game => {
+    game.querySelector(".btn").addEventListener("click", function() {
+        game.querySelector(".para").innerText = "You are added to this group";
+    });
+});
+
+let poll = {
+    question: "What's your favourite team?",
+    answers: [
+        "India", "South Africa", "New Zealand", "Australia", "Zimbabwe"
+    ],
+    pollCount: 25,
+    answersWeight: [4, 4, 2, 10, 5],
+    selectedAnswer: -1
+};
+
+let pollDOM = {
+    question: document.querySelector(".poll .question"),
+    answers: document.querySelector(".poll .answers")
+};
+
+pollDOM.question.innerText = poll.question;
+pollDOM.answers.innerHTML = poll.answers.map(function(answer, i) {
+    return (`
+        <div class="answer" onclick="markAnswer(${i})">
+            <span class="percentage-bar"></span>
+            ${answer}
+            <span class="percentage-value"></span>
+        </div>
+    `);
+}).join("");
+
+function markAnswer(i) {
+    poll.selectedAnswer = i;
+
+    
+    document.querySelectorAll(".poll .answers .answer").forEach(answer => {
+        answer.classList.remove("selected");
+    });
+
+    document.querySelectorAll(".poll .answers .answer")[i].classList.add("selected");
+
+    
+    showResults();
+}
+
+function showResults() {
+    let answers = document.querySelectorAll(".poll .answers .answer");
+    answers.forEach((answer, i) => {
+        let percentage = 0;
+        if (i === poll.selectedAnswer) {
+            percentage = Math.round((poll.answersWeight[i] + 1) * 100 / (poll.pollCount + 1));
+        } else {
+            percentage = Math.round(poll.answersWeight[i] * 100 / (poll.pollCount + 1));
+        }
+        answer.querySelector(".percentage-bar").style.width = percentage + "%";
+        answer.querySelector(".percentage-value").innerText = percentage + "%";
+    });
+}
+
+
+
+
+
+
+
+document.querySelectorAll(".game").forEach(game => {
+    game.querySelector(".btn").addEventListener("click", function() {
+        game.querySelector(".para").innerText = "You are added to this group";
+    });
+});
+
+
+
+let polling = {
+        question: "What's your favourite sports?",
+        answers: ["Cricket", "Foot Ball", "Tennis", "Volley Ball", "Shuttle"],
+        pollingCount: 25,
+        answersWeight: [8, 8, 2, 7, 1],
+        selectedAnswer: -1
+    };
+
+    let pollingDOM = {
+        question: document.querySelector(".polling .question"),
+        answers: document.querySelector(".polling .answers")
+    };
+
+    pollingDOM.question.innerText = polling.question;
+    pollingDOM.answers.innerHTML = polling.answers.map((answer, i) => `
+        <div class="answer" onclick="markPollingAnswer(${i})">
+            <span class="percentage-bar"></span>
+            ${answer}
+            <span class="percentage-value"></span>
+        </div>
+    `).join("");
+
+    function markPollingAnswer(i) {
+        polling.selectedAnswer = i;
+
+        document.querySelectorAll(".polling .answers .answer").forEach(answer => {
+            answer.classList.remove("selected");
+        });
+
+        document.querySelectorAll(".polling .answers .answer")[i].classList.add("selected");
+
+        showPollingResults();
+    }
+
+    function showPollingResults() {
+        let answers = document.querySelectorAll(".polling .answers .answer");
+        answers.forEach((answer, i) => {
+            let percentage = Math.round(polling.answersWeight[i] * 100 / polling.pollingCount);
+            if (i === polling.selectedAnswer) {
+                percentage = Math.round((polling.answersWeight[i] + 1) * 100 / (polling.pollingCount + 1));
+            }
+            answer.querySelector(".percentage-bar").style.width = percentage + "%";
+            answer.querySelector(".percentage-value").innerText = percentage + "%";
+        });
+    }
+
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const postForm = document.getElementById('postForm');
+    const postsContainer = document.getElementById('postsContainer');
+
+    postForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const postTitle = document.getElementById('postTitle').value;
+        const postContent = document.getElementById('postContent').value;
+
+        if (postTitle && postContent) {
+            addPost(postTitle, postContent);
+            postForm.reset();
+        }
+    });
+
+    function addPost(title, content) {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post';
+
+        const postTitle = document.createElement('h3');
+        postTitle.textContent = title;
+
+        const postContent = document.createElement('p');
+        postContent.textContent = content;
+
+        postDiv.appendChild(postTitle);
+        postDiv.appendChild(postContent);
+
+        postsContainer.appendChild(postDiv);
+    }
+});
+
+
+
+function toggleDetails(eventElement) {
+  const details = eventElement.querySelector('.details');
+  if (details.style.display === 'block') {
+    details.style.display = 'none';
+  } else {
+    details.style.display = 'block';
+  }
+}
+
+
+
+
+
+
+
+
+const button = document.querySelector(".button");
+
+button.addEventListener("click", function() {
+    const box = document.querySelector(".email");
+    const emailValue = box.value.trim(); 
+    
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailValue === "" || !emailRegex.test(emailValue)) {
+        box.value = "Please enter  Email";
+        box.style.paddingLeft = "10px"; 
+        box.style.color = "red";
+    } else {
+        box.value = "Thank you for subscription!!!";
+        box.style.paddingLeft = "40px";
+        box.style.color = "yellow";
+    }
+});
+
+
+</script>
+
+</body>
+</html>
+
